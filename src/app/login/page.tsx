@@ -28,19 +28,6 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
   async function handleLogin(values: LoginSchemaType) {
-    // try {
-    //   const { data } = await axios.post(
-    //     "https://ecommerce.routemisr.com/api/v1/auth/signin",
-    //     values
-    //   );
-    //   toast.success(data.message, {
-    //     position: "top-center"
-    //   });
-    //   router.push("/");
-    // } catch (error) {
-    //   toast.error(error.response.data.message, { position: "top-center" });
-    // }
-
     const res = await signIn("credentials", {
       email: values.email,
       password: values.password,
