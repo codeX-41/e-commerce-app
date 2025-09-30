@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import React, { useContext, useRef } from 'react'
 import { toast } from 'sonner';
 
-const payment = () => {
+const Payment = () => {
     const router = useRouter();
     const {cartId , afterPayment} = useContext(cartContext);
     const details = useRef("");
@@ -75,4 +75,4 @@ const payment = () => {
   );
 }
 
-export default payment
+export default Payment

@@ -1,5 +1,5 @@
 export interface Product {
-  id: any;
+  id: unknown;
   sold: number;
   images: string[];
   subcategory: Subcategory[];

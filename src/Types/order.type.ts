@@ -1,4 +1,4 @@
-export type Orders = Root2[];
+export type Orders = Order[];
 
 export interface Order {
   shippingAddress: ShippingAddress;

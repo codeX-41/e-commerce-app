@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { toast } from 'sonner';
 import Link from 'next/link';
 
-const cart = () => {
+const Cart = () => {
 
 
   const {
@@ -113,4 +113,4 @@ const cart = () => {
   );
 }
 
-export default cart
+export default Cart
