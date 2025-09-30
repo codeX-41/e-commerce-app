@@ -1,16 +1,18 @@
 import { getUserCartAction } from "@/cartActions/GetUserCart";
-import { Cart } from "@/Types/Cart.type";
+import { Cart, ProductCart } from "@/Types/Cart.type";
 import React, { createContext, useEffect, useState } from "react";
 import { AddToCart } from "@/cartActions/AddToCart";
 import { removeCartItemAction } from "@/cartActions/RemoveCartItem";
 import { updateCartAction } from "@/cartActions/UpdateCart";
 import { clearCartAction } from "@/cartActions/ClearCart";
+
+
 export const cartContext = createContext({});
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [numOfCartItems, setNumOfCartItems] = useState(0);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductCart[]>([]);
   const [cartId, setCartId] = useState("");
 
   async function addProductToCart(id: string) {

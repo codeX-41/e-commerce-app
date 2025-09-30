@@ -12,9 +12,9 @@ import { toast } from 'sonner';
 const Payment = () => {
     const router = useRouter();
     const {cartId , afterPayment} = useContext(cartContext);
-    const details = useRef("");
-    const phone = useRef("");
-    const city = useRef("");
+    const details = useRef<HTMLInputElement>(null);
+    const phone = useRef<HTMLInputElement>(null);
+    const city = useRef<HTMLInputElement>(null);
     async function cashPayment() {
         const values = {
           shippingAddress: {
@@ -38,9 +38,9 @@ const Payment = () => {
         async function onlinePayment() {
           const values = {
             shippingAddress: {
-              details: details.current.value,
-              phone: phone.current.value,
-              city: city.current.value,
+              details: details.current?.value || "",
+              phone: phone.current?.value || "",
+              city: city.current?.value || "",
             },
           };
           try {
