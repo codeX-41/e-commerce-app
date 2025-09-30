@@ -29,17 +29,20 @@ const Register = () => {
     },
     resolver:zodResolver(registerSchema)
   });
-  async function handleRegister(values) {
+  async function handleRegister(values: RegisterSchemaType) {
     try {
       const { data } = await axios.post(
-        "https://ecommerce.routemisr.com/api/v1/auth/signup" , values
+        "https://ecommerce.routemisr.com/api/v1/auth/signup",
+        values
       );
       toast.success(data.message, {
-        position: "top-center"
+        position: "top-center",
       });
       router.push("/login");
-    } catch (error) {
-      toast.error(error.response.data.message, { position: "top-center" });
+    } catch (error:any) {
+      toast.error(error.response?.data?.message || "Something went wrong", {
+        position: "top-center",
+      });
     }
   }
   return (

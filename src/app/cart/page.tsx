@@ -34,7 +34,7 @@ const Cart = () => {
 
   async function removeItem(id:string) {
     const data = await removeCartItem(id);
-            if (data.status == "success") {
+            if (data?.status == "success") {
                 toast.success("success", {
                     position: 'top-center',
                     duration:1000,

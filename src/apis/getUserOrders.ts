@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode";
 
 export async function getUserOrders() {
   const token = await getMyToken();
-  const { id } = jwtDecode<{ id: string }>(token);
+  const { id } = jwtDecode<{ id: string }>(token as string);
   if (!token) {
     throw Error("Login first");
   }

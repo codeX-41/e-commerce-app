@@ -18,9 +18,9 @@ const Payment = () => {
     async function cashPayment() {
         const values = {
           shippingAddress: {
-            details: details.current.value,
-            phone: phone.current.value,
-            city: city.current.value,
+            details: details.current?.value,
+            phone: phone.current?.value,
+            city: city.current?.value,
           },
         };
         try {
@@ -48,12 +48,6 @@ const Payment = () => {
               if (data.status == 'success') {
                   window.location.href = data.session.url;
               }
-            // toast.success(data.status, {
-            //   position: "top-center",
-            //   duration: 1000,
-            // });
-            // afterPayment();
-            // router.push("/allorders");
           } catch (error) {}
         }
   return (

@@ -6,8 +6,21 @@ import { removeCartItemAction } from "@/cartActions/RemoveCartItem";
 import { updateCartAction } from "@/cartActions/UpdateCart";
 import { clearCartAction } from "@/cartActions/ClearCart";
 
+type CartContextType = {
+  isLoading: boolean;
+  numOfCartItems: number;
+  totalCartPrice: number;
+  products: ProductCart[];
+  cartId: string;
+  addProductToCart: (id: string) => Promise<any>;
+  removeCartItem: (id: string) => Promise<Cart | undefined>;
+  updateCart: (id: string, count: number) => Promise<void>;
+  clearCart: () => Promise<void>;
+  afterPayment: () => void;
+  getUserCart: () => Promise<void>;
+};
 
-export const cartContext = createContext({});
+export const cartContext = createContext({} as CartContextType);
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [numOfCartItems, setNumOfCartItems] = useState(0);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
@@ -88,6 +101,7 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
         clearCart,
         cartId,
         afterPayment,
+        getUserCart, 
       }}
     >
       {children}
