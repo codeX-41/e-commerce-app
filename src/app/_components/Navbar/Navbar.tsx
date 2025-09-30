@@ -26,15 +26,6 @@ const Navbar = () => {
                   <Link href="/">Home</Link>
                 </li>
                 <li>
-                  <Link href="/products">Products</Link>
-                </li>
-                <li>
-                  <Link href="/categories">Categories</Link>
-                </li>
-                <li>
-                  <Link href="/brands">Brands</Link>
-                </li>
-                <li>
                   <Link href="/allorders">All Orders</Link>
                 </li>
                 <li className="relative">
